@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 220px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      background-color: #d8d8d8;
+    }
+    #header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    #logo {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+    #name {
+      font-weight: bold;
+      font-size: large;
+      margin-left: 5px;
+    }
+    #inputContainer {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    #keywordInput {
+      width: 100%;
+      padding: 0;
+      margin-right: 5px;
+    }
+    #blockList {
+      list-style-type: none;
+      padding: 0; 
+      margin-top: 0; 
+      margin-bottom: 0;
+    }
+    #blockTitle {
+      font-weight: bold;
+      margin-bottom: 0; 
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <img src="Logo.png" id="logo" alt="Logo">
+    <div id="name">Keyword Blocker</div>
+  </div>
+  <div id="inputContainer">
+    <input type="text" id="keywordInput" placeholder="Enter keyword">
+    <button id="addButton">Add</button>
+  </div>
+  <div id="blockTitle">Blocked Keywords</div>
+  <ul id="blockList"></ul>
+  <script src="popup.js"></script>
+</body>
+</html>
