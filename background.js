@@ -15,10 +15,17 @@ function checkAndBlockTab(tab) {
   
       // Blocked Keywords Check
       for (const keyword of blockedKeywords) {
-        if (url.includes(keyword.toLowerCase())) {
-          console.log(`Blocking tab ${tab.id} with URL: ${url}`);
-          chrome.tabs.remove(tab.id);
-          return;
+        try {
+          // Create regex pattern (case-insensitive)
+          const regex = new RegExp(keyword, 'i');
+          if (regex.test(url)) {
+            console.log(`Blocking tab ${tab.id} with URL: ${url}`);
+            chrome.tabs.remove(tab.id);
+            return;
+          }
+        } catch (error) {
+          console.error(`Invalid regex pattern: ${keyword}`, error);
+          // Optionally handle invalid regex patterns
         }
       }
     });
