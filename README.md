@@ -2,7 +2,7 @@
 
 **Keyword Blocker** is a Chrome extension that automatically closes websites whose URLs contain one or more keywords you have blocked. It provides a simple, effective way to limit access to distracting, harmful, or unwanted content.
 
-## 🚫 Features
+## Features
 
 - Instantly closes tabs that contain blocked keywords in the URL
 - Simple popup UI for entering new keywords
@@ -10,7 +10,7 @@
 - One-way blocking: keywords cannot be removed once added
 - Designed to discourage circumvention
 
-## ⚙️ How It Works
+## How It Works
 
 Once installed, clicking the extension icon opens a popup:
 - Enter a keyword into the textbox
@@ -20,7 +20,7 @@ Once installed, clicking the extension icon opens a popup:
 
 > **Note:** There is no way to remove a keyword once it’s added. This is an intentional design choice to reinforce commitment to self-blocking.
 
-## 🧪 Installation (Development)
+## Installation (Development)
 
 1. Clone this repository:
    ```bash
@@ -33,4 +33,18 @@ Once installed, clicking the extension icon opens a popup:
 
 4. Click Load unpacked, and select the folder containing this extension
 
+## Contributing
 
+Pull requests are welcome! Here’s how you can contribute:
+
+1. Fork the repository  
+2. Create a new branch: `git checkout -b feature-name`  
+3. Make your changes  
+4. Push to your fork: `git push origin feature-name`  
+5. Open a pull request  
+
+Please keep code clean and include clear comments where needed.
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
