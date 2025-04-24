@@ -25,7 +25,6 @@ function checkAndBlockTab(tab) {
           }
         } catch (error) {
           console.error(`Invalid regex pattern: ${keyword}`, error);
-          // Optionally handle invalid regex patterns
         }
       }
     });
