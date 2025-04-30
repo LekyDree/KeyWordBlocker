@@ -1,62 +1,177 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <style>
     body {
-      width: 220px;
+      width: 250px;
       padding: 10px;
+      padding-right: 0px;
       display: flex;
       flex-direction: column;
       background-color: #d8d8d8;
     }
+
     #header {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
     }
+
     #logo {
       width: 24px;
       height: 24px;
       margin-right: 10px;
     }
+
     #name {
       font-weight: bold;
       font-size: large;
       margin-left: 5px;
     }
+
     #inputContainer {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    #keywordInput {
+      width: 140px;
+      padding: 0;
+      margin-right: 5px;
+    }
+
+    #regexContainer {
       display: flex;
       align-items: center;
       margin-bottom: 15px;
     }
-    #keywordInput {
-      width: 100%;
-      padding: 0;
+
+    #regexCheckbox {
       margin-right: 5px;
     }
-    #blockList {
-      list-style-type: none;
-      padding: 0; 
-      margin-top: 0; 
+
+    #blockedKeywordTitle {
+      display: none;
+      font-weight: bold;
+      margin-top: 10px;
       margin-bottom: 0;
     }
-    #blockTitle {
+
+    #blockedRegexTitle {
+      display: none;
       font-weight: bold;
-      margin-bottom: 0; 
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .help-icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 13px;
+      height: 13px;
+      font-size: 11px;
+      font-weight: bold;
+      color: white;
+      background-color: gray;
+      border-radius: 50%;
+      margin-left: 5px;
+      cursor: help;
+      line-height: 1;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 32px;
+      height: 18px;
+      margin-left: 8px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      background-color: #9b9b9b;
+      border-radius: 34px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 12px;
+      width: 12px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: .4s;
+    }
+
+    input:checked+.slider {
+      background-color: #4caf50;
+    }
+
+    input:checked+.slider:before {
+      transform: translateX(14px);
     }
   </style>
 </head>
+
 <body>
   <div id="header">
     <img src="Logo.png" id="logo" alt="Logo">
     <div id="name">Keyword Blocker</div>
   </div>
+
   <div id="inputContainer">
     <input type="text" id="keywordInput" placeholder="Enter keyword">
-    <button id="addButton">Add</button>
+    <button id="addButton">Add Keyword</button>
   </div>
-  <div id="blockTitle">Blocked Keywords</div>
-  <ul id="blockList"></ul>
+
+  <div class="toggle-container">
+    <span class="toggle-label">Block Regex Pattern</span>
+    <span class="help-icon"
+      title="This toggle lets you add a regex pattern instead of a basic keyword. Regex gives a lot more options on how to block something. Only use if you know how to write regex. Because of how hard regex is">?
+    </span>
+    <label class="switch">
+      <input type="checkbox" id="regexCheckbox">
+      <span class="slider"></span>
+    </label>
+
+  </div>
+
+  <div id="blockedKeywordTitle">Blocked Keywords</div>
+  <ul id="keywordList"></ul>
+
+  <div id="blockedRegexTitle">Blocked Regex</div>
+  <ul id="regexList"></ul>
+
   <script src="popup.js"></script>
 </body>
+
 </html>
