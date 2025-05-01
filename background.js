@@ -15,7 +15,9 @@ function checkAndBlockTab(tab) {
     }
 
     // Blocked Keywords Check
-    for (const keyword of blockedKeywords) {
+    for (let keyword of blockedKeywords) {
+      keyword = keyword.startsWith("xl8m2j:") ? keyword.slice(7) : keyword;
+
       if (url.includes(keyword.toLowerCase())) {
         console.log(`Blocking tab ${tab.id} with URL: ${url}`);
         chrome.tabs.remove(tab.id);
@@ -23,7 +25,9 @@ function checkAndBlockTab(tab) {
       }
     }
 
-    for (const pattern of blockedRegex) {
+    for (let pattern of blockedRegex) {
+      pattern = pattern.startsWith("xl8m2j:") ? pattern.slice(7) : pattern;
+
       try {
         const regex = new RegExp(pattern, "i");
         if (regex.test(url)) {
@@ -54,7 +58,6 @@ chrome.tabs.onCreated.addListener((tab) => {
 
 // When a new keyword is added
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  console.log("Here");
   if (request.action === "checkTab") {
     checkAllTabs();
   }
